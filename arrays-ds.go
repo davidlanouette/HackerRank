@@ -41,7 +41,14 @@ import (
 
 // Complete the reverseArray function below.
 func reverseArray(a []int32) []int32 {
-	return a
+	arrLength := len(a)
+	out := make([]int32, arrLength)
+
+	for i, v := range a {
+		j := arrLength - i - 1
+		out[j] = v
+	}
+	return out
 }
 
 func main() {
@@ -69,6 +76,7 @@ func main() {
 	}
 
 	res := reverseArray(arr)
+	fmt.Println("Output: ", res)
 
 	for i, resItem := range res {
 		fmt.Fprintf(writer, "%d", resItem)
